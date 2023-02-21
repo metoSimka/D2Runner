@@ -9,8 +9,12 @@ import Foundation
 
 final class RunnerViewPresenter {
     
+    weak var view: IRunnerViewInput?
 }
 
-extension RunnerViewPresenter: IRunnerViewInput {
+extension RunnerViewPresenter: IRunnerViewOutput {
     
+    func onViewDidLoad() {
+        view?.updateDestinaionLabel("Current run")
+    }
 }

@@ -7,4 +7,6 @@
 */
 
 // RunnerVC
-"mainButtonStart" = "Start";
+
+"runnerButtonStart" = "Start";
+"runnerButtonStop" = "Stop";
