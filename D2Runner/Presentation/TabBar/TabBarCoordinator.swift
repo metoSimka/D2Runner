@@ -16,10 +16,11 @@ final class TabBarCoordinator {
     private var rootViewController: TabBarController {
         let tabBarViewController = TabBarController()
         let runnerViewController = RunnerCoordinator().controller
-        runnerViewController.tabBarItem.title = R.string.localizable.tab_run()
+        runnerViewController.tabBarItem.title = Tab.runner.title
         
         let runnerSelectorViewController = RunnerSelectorCoordinator().controller
-        runnerSelectorViewController.tabBarItem.title = R.string.localizable.tab_select()
+        runnerSelectorViewController.tabBarItem.title = Tab.select.title
+        
         let controllers = [
             runnerViewController,
             runnerSelectorViewController
