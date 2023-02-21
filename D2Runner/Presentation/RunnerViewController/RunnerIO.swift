@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol IRunnerViewInput {
-    
+protocol IRunnerViewInput: AnyObject {
+    func updateDestinaionLabel(_ text: String)
 }
 
-protocol IRunnerViewOutput {
-    
+protocol IRunnerViewOutput: AnyObject {
+    func onViewDidLoad()
 }

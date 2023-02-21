@@ -13,6 +13,9 @@ final class RunnerRouter {
     }()
     
     func controller() -> UIViewController {
-        return RunnerViewController(presenter: presenter)
+        let presenter = self.presenter
+        let vc = RunnerViewController(presenter: presenter)
+        presenter.view = vc
+        return vc
     }
 }

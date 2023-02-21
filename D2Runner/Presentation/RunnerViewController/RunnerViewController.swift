@@ -14,20 +14,42 @@ final class RunnerViewController: UIViewController {
                                                          left: 16,
                                                          bottom: 16,
                                                          right: 16)
-        static let statusLabelInsets : UIEdgeInsets = .init(top: 8,
+        static let statusLabelInsets: UIEdgeInsets = .init(top: 8,
                                                             left: 8,
                                                             bottom: 8,
                                                             right: 8)
-        static let mainButtonCorner: CGFloat = 12
+        static let stopButtonInsets: UIEdgeInsets = .init(top: 16,
+                                                          left: 16,
+                                                          bottom: 32,
+                                                          right: 16)
+        static let stopButtonCorner: CGFloat = 12
         static let timerInterval: TimeInterval = 0.01
     }
     
-    private let mainButton = UIButton()
-    private let statusLabel = UILabel()
-    private let presenter: IRunnerViewInput
-    private var timer: Timer?
+    enum State {
+        case stopped
+        case run
+    }
     
-    init(presenter: IRunnerViewInput) {
+    private let mainButton = UIButton()
+    private let stopButton = D2Button(title: R.string.localizable.runnerButtonStop(),
+                                      style: .medium.black)
+    private let headerLabel = UILabel()
+    private let timerLabel = UILabel()
+    private let destinationLabel = UILabel()
+    private let presenter: IRunnerViewOutput
+    
+    private var state: State = .stopped
+    private var timer: Timer?
+    private var runDataList: [TimeInterval] = []
+    private var timerCount: TimeInterval = 0 {
+        didSet {
+            let y = Double(round(10 * timerCount) / 10)
+            self.timerLabel.text = "\(y)"
+        }
+    }
+    
+    init(presenter: IRunnerViewOutput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,6 +62,11 @@ final class RunnerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
+        presenter.onViewDidLoad()
+        
+        mainButton.addTarget(self,
+                             action: #selector(startButtonTapped),
+                             for: .touchUpInside)
     }
     
     private func setupUI() {
@@ -49,54 +76,97 @@ final class RunnerViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide).inset(Constants.stackViewInsets)
         }
         stackView.axis = .vertical
-        
-        setupRoundMainButton()
-        
-        stackView.addArrangedSubview(createLabelContainer())
+        stackView.addArrangedSubview(createHeaderLabelContainer())
+        stackView.addArrangedSubview(createDestinationRow())
+        stackView.addArrangedSubview(UIView())
+        stackView.addArrangedSubview(createStopButtonContainer())
         stackView.addArrangedSubview(mainButton)
+       
+        setupRoundMainButton()
     }
-    
-    private func createLabelContainer() -> UIView {
-        let container = UIView()
-        container.addSubview(statusLabel)
-        statusLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(Constants.statusLabelInsets)
-        }
-        statusLabel.textColor = .black
-        statusLabel.text = R.string.localizable.mainButtonStart()
-        statusLabel.setContentHuggingPriority(.required, for: .vertical)
-        return container
-    }
-    
-    private func setupRoundMainButton() {
-        let button = mainButton
-        button.backgroundColor = .black
-        button.setCornerRadius(Constants.mainButtonCorner)
-        button.snp.makeConstraints { make in
-            make.height.equalTo(button.snp.width)
-        }
-        button.setTitle(R.string.localizable.mainButtonStart(),
-                        for: .normal)
-    }
-    
+   
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         mainButton.setCornerRadius(mainButton.frame.width/2)
     }
     
     private func startTimer() {
+        timerCount = 0
+        timer?.invalidate()
+        timer = nil
         timer = Timer.scheduledTimer(timeInterval: Constants.timerInterval,
                                      target: self,
                                      selector: #selector(timerSelector),
                                      userInfo: nil,
                                      repeats: true)
     }
-    
+
     @objc private func timerSelector() {
-        
+        timerCount += Constants.timerInterval
+    }
+    
+    @objc private func startButtonTapped() {
+        switch state {
+        case .stopped:
+            startTimer()
+        case .run:
+            runDataList.append(timerCount)
+            startTimer()
+        }
+        startTimer()
     }
 }
 
-extension RunnerViewController: IRunnerViewOutput {
+extension RunnerViewController: IRunnerViewInput {
+    func updateDestinaionLabel(_ text: String) {
+        destinationLabel.text = text
+    }
+}
+
+// setup UI
+private extension RunnerViewController {
+    private func createDestinationRow() -> UIView {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.addArrangedSubview(createDestinationLabelContainer())
+        stackView.addArrangedSubview(createTimerLabelContainer())
+        return stackView
+    }
     
+    private func createTimerLabelContainer() -> UIView {
+        let container = ContainerFactory.container(timerLabel)
+        timerLabel.textAlignment = .left
+        timerLabel.font = .D2Font.bold(size: 20)
+        return container
+    }
+
+    private func createHeaderLabelContainer() -> UIView {
+        let label = headerLabel
+        let container = ContainerFactory.container(label)
+        label.textColor = .D2Color.n0
+        label.text = R.string.localizable.runnerButtonStart()
+        label.setContentHuggingPriority(.required, for: .vertical)
+        return container
+    }
+    
+    private func createDestinationLabelContainer() -> UIView {
+        let container = ContainerFactory.container(destinationLabel)
+        return container
+        
+    }
+    private func setupRoundMainButton() {
+        let button = mainButton
+        button.backgroundColor = .D2Color.n0
+        button.snp.makeConstraints { make in
+            make.height.equalTo(button.snp.width)
+        }
+        button.setTitle(R.string.localizable.runnerButtonStart(),
+                        for: .normal)
+    }
+    
+    private func createStopButtonContainer() -> UIView {
+        let container = ContainerFactory.container(stopButton, insets: Constants.stopButtonInsets)
+        return container
+    }
 }
