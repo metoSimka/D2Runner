@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  D2Runner
+
+  Created by Simka on 21.02.2023.
+  
+*/
+
+"runnerButtonStart" = "Start";
+"runnerButtonStop" = "Stop";
+"runnerTimerTitle" = "current run";
+"runnerCountTitle" = "count";
+"runnerAverageTitle" = "average";
+"runnerFastestTitle" = "fastest run";
+
+"tab_run" = "Runner";
+"tab_select" = "Select";
+"tab_settings" = "Settings";

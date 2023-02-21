@@ -18,13 +18,25 @@
 		26CF275929A4AD0A0041D935 /* UIViewController+addSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF275829A4AD0A0041D935 /* UIViewController+addSubview.swift */; };
 		26CF275B29A4AF260041D935 /* RunnerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF275A29A4AF260041D935 /* RunnerRouter.swift */; };
 		26D718BB29A4CB39006B5845 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 26D718BA29A4CB39006B5845 /* RswiftLibrary */; };
-		26D718C829A4D2C7006B5845 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26D718C729A4D2C7006B5845 /* Localizable.strings */; };
 		26D718CB29A4D789006B5845 /* D2Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718CA29A4D789006B5845 /* D2Color.swift */; };
 		26D718CF29A4DAA3006B5845 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718CE29A4DAA3006B5845 /* ContainerFactory.swift */; };
 		26D718D229A4FC56006B5845 /* D2Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718D129A4FC56006B5845 /* D2Font.swift */; };
 		26D718D729A50032006B5845 /* D2ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718D629A50032006B5845 /* D2ButtonStyle.swift */; };
 		26D718DB29A500E1006B5845 /* D2Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718DA29A500E1006B5845 /* D2Button.swift */; };
 		26D718DF29A51189006B5845 /* RunData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718DE29A51189006B5845 /* RunData.swift */; };
+		26D718E329A514F5006B5845 /* RunnerInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718E229A514F5006B5845 /* RunnerInfoRowView.swift */; };
+		26D718E729A51719006B5845 /* D2Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718E629A51719006B5845 /* D2Label.swift */; };
+		26D718EA29A5179A006B5845 /* D2LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718E929A5179A006B5845 /* D2LabelStyle.swift */; };
+		26D718EF29A51B29006B5845 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26D718EE29A51B29006B5845 /* Localizable.strings */; };
+		26D718F329A51FA6006B5845 /* ShadowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718F229A51FA6006B5845 /* ShadowStyle.swift */; };
+		26D718F829A53F6E006B5845 /* RunnerSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718F729A53F6E006B5845 /* RunnerSelectorViewController.swift */; };
+		26D718FA29A53F9E006B5845 /* RunnerSelectorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718F929A53F9E006B5845 /* RunnerSelectorPresenter.swift */; };
+		26D718FC29A53FA8006B5845 /* RunnerSelectorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718FB29A53FA8006B5845 /* RunnerSelectorIO.swift */; };
+		26D718FE29A53FDB006B5845 /* RunnerSelectorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D718FD29A53FDB006B5845 /* RunnerSelectorCoordinator.swift */; };
+		26D7190229A54ED1006B5845 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7190129A54ED1006B5845 /* Tab.swift */; };
+		26D7190429A550F1006B5845 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7190329A550F1006B5845 /* TabBar.swift */; };
+		26D7190729A5516F006B5845 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7190629A5516F006B5845 /* TabBarViewController.swift */; };
+		26D7190D29A551D9006B5845 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7190C29A551D9006B5845 /* TabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +51,25 @@
 		26CF275629A4AC110041D935 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		26CF275829A4AD0A0041D935 /* UIViewController+addSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addSubview.swift"; sourceTree = "<group>"; };
 		26CF275A29A4AF260041D935 /* RunnerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerRouter.swift; sourceTree = "<group>"; };
-		26D718C729A4D2C7006B5845 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		26D718CA29A4D789006B5845 /* D2Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2Color.swift; sourceTree = "<group>"; };
 		26D718CE29A4DAA3006B5845 /* ContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
 		26D718D129A4FC56006B5845 /* D2Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2Font.swift; sourceTree = "<group>"; };
 		26D718D629A50032006B5845 /* D2ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2ButtonStyle.swift; sourceTree = "<group>"; };
 		26D718DA29A500E1006B5845 /* D2Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2Button.swift; sourceTree = "<group>"; };
 		26D718DE29A51189006B5845 /* RunData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunData.swift; sourceTree = "<group>"; };
+		26D718E229A514F5006B5845 /* RunnerInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerInfoRowView.swift; sourceTree = "<group>"; };
+		26D718E629A51719006B5845 /* D2Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2Label.swift; sourceTree = "<group>"; };
+		26D718E929A5179A006B5845 /* D2LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2LabelStyle.swift; sourceTree = "<group>"; };
+		26D718EE29A51B29006B5845 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		26D718F229A51FA6006B5845 /* ShadowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyle.swift; sourceTree = "<group>"; };
+		26D718F729A53F6E006B5845 /* RunnerSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerSelectorViewController.swift; sourceTree = "<group>"; };
+		26D718F929A53F9E006B5845 /* RunnerSelectorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerSelectorPresenter.swift; sourceTree = "<group>"; };
+		26D718FB29A53FA8006B5845 /* RunnerSelectorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerSelectorIO.swift; sourceTree = "<group>"; };
+		26D718FD29A53FDB006B5845 /* RunnerSelectorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerSelectorCoordinator.swift; sourceTree = "<group>"; };
+		26D7190129A54ED1006B5845 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		26D7190329A550F1006B5845 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		26D7190629A5516F006B5845 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		26D7190C29A551D9006B5845 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +116,9 @@
 		26CF274B29A4A2FC0041D935 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				26CF274E29A4AAE90041D935 /* RunnerViewController */,
+				26CF274E29A4AAE90041D935 /* Runner */,
+				26D718F529A53F31006B5845 /* RunnerSelector */,
+				26D718FF29A54EB9006B5845 /* TabBar */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -100,6 +126,7 @@
 		26CF274C29A4AA0B0041D935 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26D718EE29A51B29006B5845 /* Localizable.strings */,
 				26CF273D29A4A2400041D935 /* Assets.xcassets */,
 				26D718CA29A4D789006B5845 /* D2Color.swift */,
 				26D718D129A4FC56006B5845 /* D2Font.swift */,
@@ -110,7 +137,6 @@
 		26CF274D29A4AA170041D935 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				26D718C729A4D2C7006B5845 /* Localizable.strings */,
 				26CF273429A4A23F0041D935 /* AppDelegate.swift */,
 				26CF273F29A4A2400041D935 /* LaunchScreen.storyboard */,
 				26CF274229A4A2400041D935 /* Info.plist */,
@@ -118,15 +144,16 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		26CF274E29A4AAE90041D935 /* RunnerViewController */ = {
+		26CF274E29A4AAE90041D935 /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				26D718E129A514E2006B5845 /* UI */,
 				26CF274F29A4AB2F0041D935 /* RunnerViewController.swift */,
 				26CF275129A4AB590041D935 /* RunnerViewPresenter.swift */,
 				26CF275329A4AB6A0041D935 /* RunnerIO.swift */,
 				26CF275A29A4AF260041D935 /* RunnerRouter.swift */,
 			);
-			path = RunnerViewController;
+			path = Runner;
 			sourceTree = "<group>";
 		};
 		26CF275529A4ABEF0041D935 /* Extensions */ = {
@@ -161,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				26D718D629A50032006B5845 /* D2ButtonStyle.swift */,
+				26D718E929A5179A006B5845 /* D2LabelStyle.swift */,
+				26D718F229A51FA6006B5845 /* ShadowStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -168,6 +197,7 @@
 		26D718D829A500B4006B5845 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				26D718E529A5170D006B5845 /* D2Label */,
 				26D718D929A500C3006B5845 /* D2Button */,
 			);
 			path = UIElements;
@@ -187,6 +217,44 @@
 				26D718DE29A51189006B5845 /* RunData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		26D718E129A514E2006B5845 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				26D718E229A514F5006B5845 /* RunnerInfoRowView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		26D718E529A5170D006B5845 /* D2Label */ = {
+			isa = PBXGroup;
+			children = (
+				26D718E629A51719006B5845 /* D2Label.swift */,
+			);
+			path = D2Label;
+			sourceTree = "<group>";
+		};
+		26D718F529A53F31006B5845 /* RunnerSelector */ = {
+			isa = PBXGroup;
+			children = (
+				26D718F729A53F6E006B5845 /* RunnerSelectorViewController.swift */,
+				26D718F929A53F9E006B5845 /* RunnerSelectorPresenter.swift */,
+				26D718FB29A53FA8006B5845 /* RunnerSelectorIO.swift */,
+				26D718FD29A53FDB006B5845 /* RunnerSelectorCoordinator.swift */,
+			);
+			path = RunnerSelector;
+			sourceTree = "<group>";
+		};
+		26D718FF29A54EB9006B5845 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				26D7190129A54ED1006B5845 /* Tab.swift */,
+				26D7190329A550F1006B5845 /* TabBar.swift */,
+				26D7190629A5516F006B5845 /* TabBarViewController.swift */,
+				26D7190C29A551D9006B5845 /* TabBarCoordinator.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CF274129A4A2400041D935 /* LaunchScreen.storyboard in Resources */,
-				26D718C829A4D2C7006B5845 /* Localizable.strings in Resources */,
+				26D718EF29A51B29006B5845 /* Localizable.strings in Resources */,
 				26CF273E29A4A2400041D935 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,15 +340,27 @@
 				26D718D229A4FC56006B5845 /* D2Font.swift in Sources */,
 				26CF275729A4AC110041D935 /* UIView+Extensions.swift in Sources */,
 				26D718CB29A4D789006B5845 /* D2Color.swift in Sources */,
+				26D7190D29A551D9006B5845 /* TabBarCoordinator.swift in Sources */,
+				26D718E329A514F5006B5845 /* RunnerInfoRowView.swift in Sources */,
+				26D718F329A51FA6006B5845 /* ShadowStyle.swift in Sources */,
+				26D718EA29A5179A006B5845 /* D2LabelStyle.swift in Sources */,
 				26D718DF29A51189006B5845 /* RunData.swift in Sources */,
 				26D718DB29A500E1006B5845 /* D2Button.swift in Sources */,
+				26D718FC29A53FA8006B5845 /* RunnerSelectorIO.swift in Sources */,
 				26CF275929A4AD0A0041D935 /* UIViewController+addSubview.swift in Sources */,
 				26D718D729A50032006B5845 /* D2ButtonStyle.swift in Sources */,
 				26CF275429A4AB6A0041D935 /* RunnerIO.swift in Sources */,
 				26D718CF29A4DAA3006B5845 /* ContainerFactory.swift in Sources */,
+				26D718E729A51719006B5845 /* D2Label.swift in Sources */,
 				26CF275229A4AB590041D935 /* RunnerViewPresenter.swift in Sources */,
+				26D7190429A550F1006B5845 /* TabBar.swift in Sources */,
+				26D7190729A5516F006B5845 /* TabBarViewController.swift in Sources */,
+				26D718F829A53F6E006B5845 /* RunnerSelectorViewController.swift in Sources */,
 				26CF275029A4AB2F0041D935 /* RunnerViewController.swift in Sources */,
+				26D718FA29A53F9E006B5845 /* RunnerSelectorPresenter.swift in Sources */,
 				26CF275B29A4AF260041D935 /* RunnerRouter.swift in Sources */,
+				26D7190229A54ED1006B5845 /* Tab.swift in Sources */,
+				26D718FE29A53FDB006B5845 /* RunnerSelectorCoordinator.swift in Sources */,
 				26CF273529A4A23F0041D935 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

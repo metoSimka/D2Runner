@@ -35,17 +35,19 @@ final class RunnerViewController: UIViewController {
     private let stopButton = D2Button(title: R.string.localizable.runnerButtonStop(),
                                       style: .medium.black)
     private let headerLabel = UILabel()
-    private let timerLabel = UILabel()
-    private let destinationLabel = UILabel()
+    private let timerRow = RunnerInfoRowView(titleRow: R.string.localizable.runnerTimerTitle())
+    private let runCountRow = RunnerInfoRowView(titleRow: R.string.localizable.runnerCountTitle())
+    private let averageRow = RunnerInfoRowView(titleRow: R.string.localizable.runnerAverageTitle())
+    private let fastestRow = RunnerInfoRowView(titleRow: R.string.localizable.runnerFastestTitle())
     private let presenter: IRunnerViewOutput
     
+    private var runData: RunData = .init(runList: [])
     private var state: State = .stopped
     private var timer: Timer?
-    private var runDataList: [TimeInterval] = []
     private var timerCount: TimeInterval = 0 {
         didSet {
             let y = Double(round(10 * timerCount) / 10)
-            self.timerLabel.text = "\(y)"
+            timerRow.updateValueView(y)
         }
     }
     
@@ -63,10 +65,6 @@ final class RunnerViewController: UIViewController {
         view.backgroundColor = .white
         setupUI()
         presenter.onViewDidLoad()
-        
-        mainButton.addTarget(self,
-                             action: #selector(startButtonTapped),
-                             for: .touchUpInside)
     }
     
     private func setupUI() {
@@ -77,12 +75,21 @@ final class RunnerViewController: UIViewController {
         }
         stackView.axis = .vertical
         stackView.addArrangedSubview(createHeaderLabelContainer())
-        stackView.addArrangedSubview(createDestinationRow())
+        stackView.addArrangedSubview(timerRow)
+        stackView.addArrangedSubview(runCountRow)
+        stackView.addArrangedSubview(fastestRow)
+        stackView.addArrangedSubview(averageRow)
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(createStopButtonContainer())
         stackView.addArrangedSubview(mainButton)
        
         setupRoundMainButton()
+        mainButton.addTarget(self,
+                             action: #selector(startButtonTapped),
+                             for: .touchUpInside)
+        stopButton.addTarget(self,
+                             action: #selector(stopButtonTapped),
+                             for: .touchUpInside)
     }
    
     override func viewWillLayoutSubviews() {
@@ -94,6 +101,7 @@ final class RunnerViewController: UIViewController {
         timerCount = 0
         timer?.invalidate()
         timer = nil
+        state = .run
         timer = Timer.scheduledTimer(timeInterval: Constants.timerInterval,
                                      target: self,
                                      selector: #selector(timerSelector),
@@ -105,42 +113,44 @@ final class RunnerViewController: UIViewController {
         timerCount += Constants.timerInterval
     }
     
+    @objc private func stopButtonTapped() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     @objc private func startButtonTapped() {
         switch state {
         case .stopped:
             startTimer()
         case .run:
-            runDataList.append(timerCount)
+            runData.appendRun(timeInterval: timerCount)
             startTimer()
+            updateLabels(with: runData)
         }
         startTimer()
+    }
+    
+    private func updateLabels(with runData: RunData) {
+        runCountRow.updateValueView(runData.count)
+        averageRow.updateValueView(runData.averageTime)
+        fastestRow.updateValueView(runData.fastestTime)
     }
 }
 
 extension RunnerViewController: IRunnerViewInput {
-    func updateDestinaionLabel(_ text: String) {
-        destinationLabel.text = text
-    }
 }
 
 // setup UI
 private extension RunnerViewController {
-    private func createDestinationRow() -> UIView {
+    private func createDestinationRow(view1: UIView, view2: UIView) -> UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.addArrangedSubview(createDestinationLabelContainer())
-        stackView.addArrangedSubview(createTimerLabelContainer())
+        stackView.addArrangedSubview(view1)
+        stackView.addArrangedSubview(view2)
         return stackView
     }
     
-    private func createTimerLabelContainer() -> UIView {
-        let container = ContainerFactory.container(timerLabel)
-        timerLabel.textAlignment = .left
-        timerLabel.font = .D2Font.bold(size: 20)
-        return container
-    }
-
     private func createHeaderLabelContainer() -> UIView {
         let label = headerLabel
         let container = ContainerFactory.container(label)
@@ -150,11 +160,6 @@ private extension RunnerViewController {
         return container
     }
     
-    private func createDestinationLabelContainer() -> UIView {
-        let container = ContainerFactory.container(destinationLabel)
-        return container
-        
-    }
     private func setupRoundMainButton() {
         let button = mainButton
         button.backgroundColor = .D2Color.n0

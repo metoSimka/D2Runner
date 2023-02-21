@@ -7,15 +7,19 @@
 
 import UIKit
 
-final class RunnerRouter {
-    private lazy var presenter: RunnerViewPresenter = {
-        return RunnerViewPresenter()
+final class RunnerCoordinator {
+    private lazy var presenter: RunnerPresenter = {
+        return RunnerPresenter()
     }()
     
-    func controller() -> UIViewController {
+    private var rootController: RunnerViewController {
         let presenter = self.presenter
         let vc = RunnerViewController(presenter: presenter)
         presenter.view = vc
         return vc
+    }
+    
+    var controller: UIViewController {
+        return rootController
     }
 }

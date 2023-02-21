@@ -21,6 +21,7 @@ class D2Button: UIButton {
         self.style = style
         super.init(frame: .zero)
         apply(title: title, style: style)
+        dropShadow()
     }
     
     override var intrinsicContentSize: CGSize {

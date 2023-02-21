@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IRunnerViewInput: AnyObject {
-    func updateDestinaionLabel(_ text: String)
+    
 }
 
 protocol IRunnerViewOutput: AnyObject {
